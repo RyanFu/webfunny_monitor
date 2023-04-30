@@ -2,7 +2,6 @@
     <img width=400 src="http://www.webfunny.cn/resource/logo-letter.png"/>
 </p>
 
-
 <p align="center">
   <a href="#项目大小"><img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/a597873885/webfunny_monitor"></a>
   <a href="#最近更新"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/a597873885/webfunny_monitor"></a>
@@ -11,86 +10,99 @@
   <a href="#开源协议"><img alt="GitHub" src="https://img.shields.io/github/license/a597873885/webfunny_monitor"></a>
 </p>
 
-> 如果你是一位前端工程师，那你一定不止一次去解决一些顽固的线上问题，你也曾想方设法复现用户的bug，结果可能都不太理想。 怎样定位前端线上问题，一直以来，都是很头疼的问题，因为它发生于用户的一系列操作之后。错误的原因可能源于机型，网络环境，复杂的操作行为等等，在我们想要去解决的时候很难复现出来，自然也就无法解决。
+> Webfunny是一款集前端监控和埋点于一体的系统，非常轻量易用，纯私有化部署，只需要简单几步就可以搭建一套自己的监控埋点系统。
 
-> 身为一名前端工程师，我每天都要面临很多线上的问题，一时间让我焦头烂额。公司其他的监控系统也有，但是每次解决问题都需要辗转于各种监控系统之间，亦是疲惫不堪。所以，我便为自己（前端工程师）量身定做了这样一款监控系统，现在分享给大家使用，欢迎点击了解。
+#### [Webfunny前端监控系统](https://www.webfunny.cn/webfunnyMonitor) 
+实时大屏、运营数据分析、前端错误分析、页面性能分析、接口性能分析、用户细查、用户连线。
 
-> 只需要简单几步，你就可以搭建一套属于自己的前端监控系统了。
+<p>
+    <img width=800 src="https://www.webfunny.cn/resource/webfunny_home.png"/>
+</p>
 
-### 了解作品  
+#### [Webfunny埋点系统](https://www.webfunny.cn/webfunnyEvent) 
+业务数据分析、多样的可视化看板、高度自由的字段和点位设计、SDK发布。数据分析、留存分析、转化率分析、漏斗分析。
 
-   [【官网简介】](http://www.webfunny.cn/home.html) | 
-   [【Demo效果】](http://www.webfunny.cn/demo/home.html) | 
-   [【更新日志】](http://www.webfunny.cn/update.html)
+<p>
+    <img width=800 src="https://www.webfunny.cn/resource/event_home.png?t=1"/>
+</p>
+
+
+### 本地安装
+
+1. 克隆到本地：`git clone https://github.com/a597873885/webfunny_monitor.git`
+
+2. 安装依赖包：`npm install && npm run bootstrap`
+
+3. 安装pm2(已有，请忽略)：`npm install pm2 -g`
+
+4. 运行程序：`npm run prd`
+
+5. 访问页面：`http://localhost:8008/webfunny_center/main.html`
+
+### 服务器安装
+[【私有化部署教程】](https://www.webfunny.cn/desMonitor?blogUrl=137&menuKey=menu1&blogKey=1-1)
+
+### Docker 安装
+[【docker部署教程】](https://www.webfunny.cn/desMonitor?blogUrl=128&menuKey=menu2&blogKey=2-0)
+
+### 历史版本  
+[【版本】](https://www.webfunny.cn/version)
  
    
+### Webfunny技术交流群
 
-### 私有化部署方式
+   <img width=150 src="https://webfunny.cn/resource/wf_wxq2.png"/>
 
-   [【部署教程】](https://github.com/a597873885/webfunny_monitor/blob/master/DES.md)
-   
-   [【Docker部署】](https://github.com/a597873885/webfunny_monitor/blob/master/DES_DOCKER.md)
-   
-### 联系作者微信
+### 官方客服微信
 
-   微信号：webfunny_2020
+   微信号：walkingfunny
 
-   <img width=150 src="http://www.webfunny.cn/src/assets/img/wx_add.jpeg"/>
+   <img width=150 src="https://www.webfunny.cn/resource/xiaoguanzong.png"/>
 
-### 压力测试
-
-可支持日活千万级别PV量。
 
 ### 目录结构
 ```
-    |
-    |──bin/                                    * 项目启动目录
-    |     |
-    |     |
-    |     |—— domain.js                        * 域名配置文件
-    |     |—— messageQueue.js                  * 消息队列开关配置文件
-    |     |—— mysqlConfig.js                   * mysql数据库连接配置文件
-    |     |—— purchaseCode.js                  * 激活码配置文件
-    |     |—— saveDays.js                      * 日志存储周期配置文件
-    |     |—— webfunny.js                      * 服务启动文件
-    | 
-    |
-    |——config/                                 * 基础配置目录（使用者可以不用关注）
-    |
-    |——controllers/                            * 业务逻辑代码（已加密）
-    |
-    |——interceptor/                            * 拦截器代码（监控到的异常都会经过拦截器，使用者可以自定义报警）
-    |             |
-    |             |—— config/dingRobot.js      * 钉钉机器人配置
-    |
-    |——lib/
-    |     |
-    |     |—— RabbitMq.js                      * 消息对列创建文件
-    |     |—— webfunny.min.js                  * 探针生成的模板文件
-    |
-    |——logs/
-    |      |
-    |      |——errors/                          * 监控系统运行错误日志目录（排查部署问题）
-    |      |
-    |      |——info/                            * 普通日志打印目录
-    |
-    |——schema/                                 * 基础表数据库字段设计
-    |——schema_con/                             * 需要分表的数据库字段设计
-    |
-    |——modules/
-    |         |
-    |         |—— models.js                    * 业务逻辑代码（已加密）
-    |
-    |
-    |——routes/                                 * 路由、定时器
-    |
-    |——views/                                  * 监控系统页面代码
-    |
-    |
-    |
-    |—— app.js                                 * 程序入口文件
-    |—— Dockerfile.js                          * docker部署配置文件
-    |—— restart.sh                             * 程序重启脚本文件（需设置此文件的执行权限）
 
-    |—— 其他文件或目录，使用者大可不必关注
+    |── center/                                    * 应用中心
+    |         |
+    |         |—— config                           * 配置文件
+    |         |—— controllers                      * 业务逻辑
+    |         |—— logs                             * 日志文件
+    |         |—— middlreware                      * 中间件
+    |         |—— modules                          * 业务逻辑
+    |         |—— routes                           * 路由
+    |         |—— schema                           * 数据库设计
+    |         |—— util                             * 工具
+    |         |—— util_cus                         * 用户自定义工具
+    |         |—— views                            * 可视化文件
+    |
+    |── event/                                     * 埋点系统
+    |        |
+    |        |—— config                            * 配置文件
+    |        |—— config_variable                   * 用户配置文件
+    |        |—— controllers                       * 业务逻辑
+    |        |—— logs                              * 日志文件
+    |        |—— middlreware                       * 中间件
+    |        |—— modules                           * 业务逻辑
+    |        |—— routes                            * 路由
+    |        |—— schema                            * 数据库设计
+    |        |—— util                              * 工具
+    |        |—— util_cus                          * 用户自定义工具
+    |        |—— views                             * 可视化文件
+    |
+    |──monitor/                                    * 监控系统
+    |         |
+    |         |—— alarm                            * 警报配置
+    |         |—— config                           * 系统配置文件
+    |         |—— config_variable                  * 用户配置文件
+    |         |—— controllers                      * 业务逻辑
+    |         |—— interceptor                      * 拦截器
+    |         |—— logs                             * 日志文件
+    |         |—— middlreware                      * 中间件
+    |         |—— modules                          * 业务逻辑
+    |         |—— routes                           * 路由
+    |         |—— schema                           * 数据库设计
+    |         |—— util                             * 工具
+    |         |—— util_cus                         * 用户自定义工具
+    |         |—— views                            * 可视化文件
 ```
